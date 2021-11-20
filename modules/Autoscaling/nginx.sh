@@ -64,7 +64,7 @@ http {
          
         location / {
             proxy_set_header             Host $host;
-            proxy_pass                   http://internal-prj-15-internal-alb-738996055.us-east-1.elb.amazonaws.com; 
+            proxy_pass                   http://internal-prj-15-internal-alb-641969922.us-east-1.elb.amazonaws.com; 
            }
     }
 }

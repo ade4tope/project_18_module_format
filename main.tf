@@ -54,7 +54,11 @@ module "ALB" {
   private-sbn-2      = module.VPC.private_subnets-2
   load_balancer_type = "application"
   ip_address_type    = "ipv4"
-}
+  # external_alb_dns_name = aws_lb.ext-alb.dns_name
+  # external_alb_zone_id  = aws_lb.ext-alb.zone_id
+  environment           = var.environment
+  }
+
 
 module "security" {
   source = "./modules/Security"
@@ -70,7 +74,8 @@ module "AutoScaling" {
   desired_capacity  = 1
   min_size          = 1
   max_size          = 1
-  web-sg            = [module.security.web-sg]
+  web-sg1             = [module.security.web-sg1]
+  web-sg2             = [module.security.web-sg2]
   bastion-sg        = [module.security.bastion-sg]
   nginx-sg          = [module.security.nginx-sg]
   wordpress-alb-tgt = module.ALB.wordpress-tgt

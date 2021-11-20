@@ -19,7 +19,11 @@ variable "ami-bastion" {
   description = "ami for bastion"
 }
 
-variable "web-sg" {
+variable "web-sg1" {
+  type        = list(any)
+  description = "security group for webservers"
+}
+variable "web-sg2" {
   type        = list(any)
   description = "security group for webservers"
 }

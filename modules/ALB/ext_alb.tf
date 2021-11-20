@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "nginx-tgt" {
   health_check {
     interval            = 10
     path                = "/healthstatus"
-    protocol            = "HTTPS"
+    protocol            = "HTTP"
     timeout             = 5
     healthy_threshold   = 5
     unhealthy_threshold = 2
@@ -84,7 +84,7 @@ resource "aws_lb_listener" "nginx-listner" {
 #   health_check {
 #     interval            = 10
 #     path                = "/healthstatus"
-#     protocol            = "HTTPS"
+#     protocol            = "HTTP"
 #     timeout             = 5
 #     healthy_threshold   = 5
 #     unhealthy_threshold = 2
@@ -106,7 +106,7 @@ resource "aws_lb_listener" "nginx-listner" {
 #   health_check {
 #     interval            = 10
 #     path                = "/healthstatus"
-#     protocol            = "HTTPS"
+#     protocol            = "HTTP"
 #     timeout             = 5
 #     healthy_threshold   = 5
 #     unhealthy_threshold = 2

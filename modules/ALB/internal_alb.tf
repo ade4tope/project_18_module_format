@@ -3,7 +3,7 @@
 #Internal Load Balancers for webservers
 #---------------------------------
 
-resource "aws_lb" "prj-15-internal-alb" {
+resource "aws_lb" "internal-alb" {
   name     = "prj-15-internal-alb"
   internal = true
 
@@ -20,7 +20,7 @@ resource "aws_lb" "prj-15-internal-alb" {
   )
 
   ip_address_type    = var.ip_address_type
-  load_balancer_type = var.load_balancer_type
+  # load_balancer_type = var.load_balancer_type
 }
 
 
@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "wordpress-tgt" {
   health_check {
     interval            = 10
     path                = "/healthstatus"
-    protocol            = "HTTPS"
+    protocol            = "HTTP"
     timeout             = 5
     healthy_threshold   = 5
     unhealthy_threshold = 2
@@ -52,7 +52,7 @@ resource "aws_lb_target_group" "tooling-tgt" {
   health_check {
     interval            = 10
     path                = "/healthstatus"
-    protocol            = "HTTPS"
+    protocol            = "HTTP"
     timeout             = 5
     healthy_threshold   = 5
     unhealthy_threshold = 2
@@ -71,7 +71,7 @@ resource "aws_lb_target_group" "tooling-tgt" {
 
 
 resource "aws_lb_listener" "web-listener" {
-  load_balancer_arn = aws_lb.prj-15-internal-alb.arn
+  load_balancer_arn = aws_lb.internal-alb.arn
   port              = 80
   protocol          = "HTTP"
 #   certificate_arn   = aws_acm_certificate_validation.ibk.certificate_arn

@@ -24,12 +24,12 @@
 #   }
 # }
 
-terraform {
-  backend "s3" {
-    bucket         = "topesan-dev-terraform-buckett"
-    key            = "global/s3/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
-    encrypt        = true
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = "topesan-dev-terraform-buckett"
+#     key            = "global/${var.environment}-terraform.tfstate"
+#     region         = "var.region"
+#     dynamodb_table = "terraform-locks"
+#     encrypt        = true
+#   }
+# }

@@ -18,10 +18,13 @@ output "nginx-sg" {
 }
 
 
-output "web-sg" {
-  value = aws_security_group.ACS["webserver-sg"].id
+output "web-sg1" {
+  value = aws_security_group.ACS["tooling"].id
 }
 
+output "web-sg2" {
+  value = aws_security_group.ACS["wordpress"].id
+}
 
 output "datalayer-sg" {
   value = aws_security_group.ACS["datalayer-sg"].id

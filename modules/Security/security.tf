@@ -26,10 +26,15 @@ locals {
     }
 
 
-    # security group for webservers
-    webserver-sg = {
-      name        = "webserver-sg"
-      description = "webservers security group"
+    # security group for tooling webserver
+    tooling = {
+      name        = "tooling"
+      description = "tooling webserver security group"
+    }
+    # security group for wordpress webservers
+    wordpress = {
+      name        = "wordpress"
+      description = "webservers wordpress security group"
     }
 
 

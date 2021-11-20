@@ -12,7 +12,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
 
   image_id                             = var.ami-web
   instance_type                        = "t2.micro"
-  vpc_security_group_ids               = var.web-sg
+  vpc_security_group_ids               = var.web-sg2
   instance_initiated_shutdown_behavior = "terminate"
 
   iam_instance_profile {
@@ -64,7 +64,7 @@ resource "aws_launch_template" "tooling-launch-template" {
 
   image_id                             = var.ami-web
   instance_type                        = "t2.micro"
-  vpc_security_group_ids               = var.web-sg
+  vpc_security_group_ids               = var.web-sg1
   instance_initiated_shutdown_behavior = "terminate"
 
   iam_instance_profile {

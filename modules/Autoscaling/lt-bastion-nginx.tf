@@ -53,14 +53,6 @@ resource "aws_launch_template" "bastion-launch-template" {
 
 resource "aws_launch_template" "nginx-launch-template" {
 
-  block_device_mappings {
-    device_name = "/dev/sda1"
-
-    ebs {
-      volume_size = 20
-    }
-  }
-
   image_id                             = var.ami-nginx
   instance_type                        = "t2.micro"
   vpc_security_group_ids               = var.nginx-sg
@@ -75,9 +67,19 @@ resource "aws_launch_template" "nginx-launch-template" {
   placement {
     availability_zone = "random_shuffle.az_list.result"
   }
+ monitoring {
+    enabled = true
+  }
 
   lifecycle {
     create_before_destroy = true
+  }
+    block_device_mappings {
+    device_name = "/dev/sda1"
+
+    ebs {
+      volume_size = 20
+    }
   }
 
   tag_specifications {

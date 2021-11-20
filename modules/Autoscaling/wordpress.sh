@@ -19,7 +19,7 @@ make rpm
 sudo yum install -y  ./build/amazon-efs-utils*rpm
 
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-05b14806ed6e35d6f fs-0c749d9a28b9b726d:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-0626e74a77d1ef50b fs-0c72172030c48bc0e:/ /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -33,7 +33,7 @@ wget http://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 rm -rf latest.tar.gz
 cp wordpress/wp-config-sample.php wordpress/wp-config.php
-mkdir /var/www/html/
+sudo
 cp -R /home/ec2-user/wordpress/* /var/www/html/
 sudo setenforce Permissive
 cd /var/www/html/

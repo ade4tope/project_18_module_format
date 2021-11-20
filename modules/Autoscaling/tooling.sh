@@ -20,7 +20,7 @@ make rpm
 sudo yum install -y  ./build/amazon-efs-utils*rpm
 
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-02faa23cefa9a7d33 fs-0496f85969279e97a:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-0706632a2aa95968f fs-0c72172030c48bc0e:/ /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -31,7 +31,7 @@ systemctl start php-fpm
 systemctl enable php-fpm
 git clone https://github.com/darey-devops/tooling.git
 mkdir /var/www/html
-cp -R /home/ec2-user/tooling-1/html/*  /var/www/html/
+cp -R /home/ec2-user/tooling/html/*  /var/www/html/
 sudo setenforce Permissive
 cd /var/www/html/
 touch healthstatus

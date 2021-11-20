@@ -51,3 +51,14 @@ variable "name" {
     description = "name of the loadbalancer"
   
 }
+# variable "external_alb_dns_name" {
+#   type = string
+# }
+
+# variable "external_alb_zone_id" {
+#   type = string
+# }
+variable "environment" {
+  type        = string
+  description = "Enviroment"
+}
